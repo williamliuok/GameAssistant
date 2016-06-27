@@ -31,7 +31,7 @@ public class Welcome_Activity extends BaseActivity {
         imageView.setImageResource(srcID);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         mlistPics.add(imageView);
-
+    //
     }
 
     @Override
