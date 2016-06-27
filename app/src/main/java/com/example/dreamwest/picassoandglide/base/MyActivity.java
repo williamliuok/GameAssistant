@@ -4,13 +4,17 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.dreamwest.picassoandglide.R;
 
 public class MyActivity extends BaseActivity {
     private PopupWindow pw ;
     private View myView;
+    private Button btn_register;
+    private TextView tv_signup;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -45,17 +49,32 @@ public class MyActivity extends BaseActivity {
 
     @Override
     protected void findView() {
+        btn_register = (Button) findViewById(R.id.btn_regiter);
+        tv_signup = (TextView) findViewById(R.id.tv_signup);
 
     }
 
     @Override
     protected void init() {
         myView = getLayoutInflater().inflate(R.layout.activity_my_popupwindow, null);
+
     }
 
     @Override
     protected void initEvent() {
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(this,RegisterActivity.class);
+            }
+        });
 
+        tv_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(this,SignupActivity.class);
+            }
+        });
     }
 
     @Override
