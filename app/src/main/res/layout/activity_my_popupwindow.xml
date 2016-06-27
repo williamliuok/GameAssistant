@@ -6,20 +6,138 @@
     tools:context="com.example.dreamwest.picassoandglide.base.MyActivity">
 
     <ImageView
-        android:layout_marginTop="18dp"
-        android:src="#b0ff0000"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="400dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/popupwindow_shape"/>
 
     <TextView
+        android:id="@+id/tv_title_popupwindow"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
-        android:text="恭喜您获得1000U币"
-        android:gravity="center"
-        android:textColor="#ffffff"
-        android:textSize="18sp"
         android:background="@mipmap/newuser_redbag_title"
+        android:gravity="center"
+        android:text="恭喜您获得1000U币"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/tv_title_popupwindow"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@mipmap/newuser_redbag_xx"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获得新人专享"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000U"
+                android:textColor="#ffffff"
+                android:textSize="26sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="币红包"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="合计一元人民币"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="仅需一步红包就稳稳地落入你的腰包"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_redbag"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/newuser_redbag" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="40dp" />
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_redbag"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="1000"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FF0000"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/btn_regiter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_redbag"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_register_selector"
+        android:text="立即注册"
+        android:textColor="#ffff0000"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_regiter"
+        android:textSize="18sp"
+        android:text="已有账号，立即登录"
+        android:gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_below="@id/tv_signup"
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        android:layout_width="180dp"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
