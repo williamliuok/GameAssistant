@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.dreamwest.picassoandglide.base.SignupActivity">
+    tools:context=".module.main.UI.SignupActivity">
 
     <RelativeLayout
         android:id="@+id/title_signup"
@@ -65,6 +65,7 @@
         android:layout_height="45dp"/>
 
     <CheckBox
+        android:id="@+id/checkbox_signup"
         android:clickable="true"
         style="@style/CustomCheckboxTheme"
         android:text="下次自动登录"

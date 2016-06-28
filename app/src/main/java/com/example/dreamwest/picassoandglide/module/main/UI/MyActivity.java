@@ -1,4 +1,4 @@
-package com.example.dreamwest.picassoandglide.base;
+package com.example.dreamwest.picassoandglide.module.main.UI;
 
 import android.content.Intent;
 import android.view.Gravity;
@@ -10,6 +10,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.dreamwest.picassoandglide.R;
+import com.example.dreamwest.picassoandglide.base.BaseActivity;
 
 public class MyActivity extends BaseActivity {
     private PopupWindow pw;

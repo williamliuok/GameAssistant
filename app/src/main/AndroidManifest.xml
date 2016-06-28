@@ -13,22 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".module.main.UI.MainActivity" />
-        <activity android:name=".base.Welcome_Activity">
+        <activity android:name=".module.main.UI.Welcome_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".base.MyActivity" >
+        <activity android:name=".module.main.UI.MyActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="gameass"/>
             </intent-filter>
         </activity>
-        <activity android:name=".base.SignupActivity" />
-        <activity android:name=".base.RegisterActivity"></activity>
+        <activity android:name=".module.main.UI.SignupActivity" />
+        <activity android:name=".module.main.UI.RegisterActivity"></activity>
     </application>
 
 </manifest>

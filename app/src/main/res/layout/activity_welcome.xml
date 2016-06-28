@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dreamwest.picassoandglide.base.Welcome_Activity">
+    tools:context=".module.main.UI.Welcome_Activity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_welcome"

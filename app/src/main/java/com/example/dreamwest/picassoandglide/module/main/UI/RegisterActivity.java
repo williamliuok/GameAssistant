@@ -1,8 +1,6 @@
-package com.example.dreamwest.picassoandglide.base;
+package com.example.dreamwest.picassoandglide.module.main.UI;
 
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dreamwest.picassoandglide.R;
+import com.example.dreamwest.picassoandglide.base.BaseActivity;
 
 public class RegisterActivity extends BaseActivity {
 

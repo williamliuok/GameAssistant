@@ -1,10 +1,8 @@
-package com.example.dreamwest.picassoandglide.base;
+package com.example.dreamwest.picassoandglide.module.main.UI;
 
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -15,8 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.dreamwest.picassoandglide.R;
+import com.example.dreamwest.picassoandglide.base.BaseActivity;
 import com.example.dreamwest.picassoandglide.common.constant.Constant;
-import com.example.dreamwest.picassoandglide.module.main.UI.MainActivity;
 import com.se7en.utils.SystemUtil;
 
 import java.util.ArrayList;
@@ -32,6 +30,7 @@ public class Welcome_Activity extends BaseActivity {
     private int mLastVersion ;
     private Button btn_welcome;
     private Intent intent;
+    boolean mbIsLogin = false;//判断是否已经登录
 
     @Override
     protected int setViewID() {
@@ -78,9 +77,7 @@ public class Welcome_Activity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                intent = new Intent(Welcome_Activity.this,MyActivity.class);
-                startActivity(intent);
-                finish();
+                showNextActivity();
             }
 
             @Override
@@ -89,6 +86,17 @@ public class Welcome_Activity extends BaseActivity {
             }
         });
 
+    }
+
+    private void showNextActivity() {
+        intent = new Intent();
+        if (mbIsLogin){
+            intent.setClass(this,MainActivity.class);
+        }else {
+            intent.setClass(this,MyActivity.class);
+        }
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -108,7 +116,7 @@ public class Welcome_Activity extends BaseActivity {
 
     @Override
     protected void init() {
-        intent = new Intent(this, MyActivity.class);
+        mbIsLogin = SystemUtil.getSharedBoolean(Constant.LOGIN_FLAG,false);
         mCurrentVersion= SystemUtil.getSystemVersionCode();
         mLastVersion=SystemUtil.getSharedInt(Constant.VERSION_STRING,-1);
         if((mLastVersion==-1)||mCurrentVersion>mLastVersion){
