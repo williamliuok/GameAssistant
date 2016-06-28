@@ -7,7 +7,7 @@ public class Constant {
     public static final String VERSION_STRING = "APP_VERSION";
     public static final String LOGIN_FLAG = "ISLOGIN";
     public static final String  MONEY_URL = "http://zhushou.72g.com/app/game/game_list/";
-
+    public static final String LOGIN_POST = "http://www.yuu1.com/app_api/app_login";
     public static final String GAME_TASK_LIST_JSON = "{\n" +
             "\t\"info\": [{\n" +
             "\t\t\"id\": \"1\",\n" +

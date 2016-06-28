@@ -1,5 +1,6 @@
 package com.example.dreamwest.picassoandglide.base;
 
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,31 +12,32 @@ import android.widget.TextView;
 import com.example.dreamwest.picassoandglide.R;
 
 public class MyActivity extends BaseActivity {
-    private PopupWindow pw ;
+    private PopupWindow pw;
     private View myView;
     private Button btn_register;
     private TextView tv_signup;
+    private Intent intent;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         setAlph(0.5f);
-        if(pw == null){
+        if (pw == null) {
             pw = new PopupWindow(myView, ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT,false);
-            pw.showAtLocation(getWindow().getDecorView(), Gravity.CENTER,0,0);
+                    ViewGroup.LayoutParams.WRAP_CONTENT, false);
+            pw.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
         }
     }
 
     private void setAlph(float alpha) {
-        WindowManager.LayoutParams params=getWindow().getAttributes();
-        params.alpha=alpha;
+        WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.alpha = alpha;
         getWindow().setAttributes(params);
     }
 
     @Override
     protected void onDestroy() {
-        if(pw != null){
+        if (pw != null) {
             pw.dismiss();
             pw = null;
         }
@@ -49,32 +51,37 @@ public class MyActivity extends BaseActivity {
 
     @Override
     protected void findView() {
-        btn_register = (Button) findViewById(R.id.btn_regiter);
-        tv_signup = (TextView) findViewById(R.id.tv_signup);
-
-    }
-
-    @Override
-    protected void init() {
         myView = getLayoutInflater().inflate(R.layout.activity_my_popupwindow, null);
-
-    }
-
-    @Override
-    protected void initEvent() {
+        btn_register = (Button) myView.findViewById(R.id.btn_regiter);
+        tv_signup = (TextView) myView.findViewById(R.id.tv_signup);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(this,RegisterActivity.class);
+                intent = new Intent(MyActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
         tv_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(this,SignupActivity.class);
+                intent = new Intent(MyActivity.this, SignupActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
+
+    }
+
+    @Override
+    protected void init() {
+
+    }
+
+    @Override
+    protected void initEvent() {
+
     }
 
     @Override

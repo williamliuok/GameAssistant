@@ -3,22 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.dreamwest.picassoandglide.base.SignupActivity">
 
     <RelativeLayout
+        android:id="@+id/title_signup"
         android:layout_width="match_parent"
-        android:background="#F7F8FA"
+        android:background="#CECECE"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
         <TextView
             android:layout_centerInParent="true"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:text="用户登录"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="16dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:textColor="@android:color/holo_blue_light"
@@ -29,6 +32,81 @@
     </RelativeLayout>
 
 
+        <EditText
+            android:inputType="phone"
+            android:paddingLeft="10dp"
+            android:hint="请输入手机号"
+            android:textColor="#242424"
+            android:textColorHint="#D3D3D3"
+            android:id="@+id/et_user_signup"
+            android:layout_below="@id/title_signup"
+            android:background="@drawable/edittext_signup_shape"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
 
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/et_pwd_signup"
+        android:paddingLeft="10dp"
+        android:hint="请输入密码"
+        android:textColor="#242424"
+        android:textColorHint="#D3D3D3"
+        android:layout_below="@id/et_user_signup"
+        android:background="@drawable/edittext_signup_shape"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
+
+    <CheckBox
+        android:clickable="true"
+        style="@style/CustomCheckboxTheme"
+        android:text="下次自动登录"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@id/et_pwd_signup"
+        android:layout_below="@id/et_pwd_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_fgpwd_signup"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_light"
+        android:text="忘记密码了？"
+        android:layout_marginTop="20dp"
+        android:layout_alignRight="@id/et_pwd_signup"
+        android:layout_below="@id/et_pwd_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:text="登 录"
+        android:textSize="20sp"
+        android:background="@drawable/btn_signup_selector"
+        android:textColor="@color/btn_signup_text"
+        android:layout_below="@id/tv_fgpwd_signup"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_blue_light"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="如登陆异常，请联系客服QQ:800077265"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

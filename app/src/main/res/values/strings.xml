@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PicassoAndGlide</string>
+    <string name="register_agreement"><a href="gameass://">注册协议</a></string>
 </resources>

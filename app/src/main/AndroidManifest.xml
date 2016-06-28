@@ -20,8 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".base.MyActivity" />
-        <activity android:name=".base.SignupActivity"></activity>
+        <activity android:name=".base.MyActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="gameass"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".base.SignupActivity" />
+        <activity android:name=".base.RegisterActivity"></activity>
     </application>
 
 </manifest>

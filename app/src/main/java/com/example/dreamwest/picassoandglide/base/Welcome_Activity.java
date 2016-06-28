@@ -74,11 +74,11 @@ public class Welcome_Activity extends BaseActivity {
         translateAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                intent = new Intent(Welcome_Activity.this,MyActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -145,8 +145,6 @@ public class Welcome_Activity extends BaseActivity {
             showLogoTextAnim();
         }
     }
-
-
 
     @Override
     protected void initEvent() {
