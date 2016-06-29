@@ -41,7 +41,7 @@ public class Welcome_Activity extends BaseActivity {
                 Animation.RELATIVE_TO_PARENT,0,
                 Animation.RELATIVE_TO_PARENT,0,
                 Animation.RELATIVE_TO_PARENT,0);
-        translateAnimation.setDuration(2000);
+        translateAnimation.setDuration(1000);
         translateAnimation.setInterpolator(new OvershootInterpolator());
         logotext.setVisibility(View.VISIBLE);
         logotext.startAnimation(translateAnimation);

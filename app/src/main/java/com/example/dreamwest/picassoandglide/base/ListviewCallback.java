@@ -6,6 +6,7 @@ package com.example.dreamwest.picassoandglide.base;
 public interface ListviewCallback {
     //更新listview条目
     //listview更新到的数据对象的集合
+
     public void updateListview(Object object);
 
 }

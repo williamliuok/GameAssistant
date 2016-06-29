@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="BoottomMenuView">
-        <attr name="src" format="reference"/>
+        <attr name="srcnormal" format="reference"/>
+        <attr name="srcpress" format="reference"/>
         <attr name="text" format="string"/>
     </declare-styleable>
 </resources>

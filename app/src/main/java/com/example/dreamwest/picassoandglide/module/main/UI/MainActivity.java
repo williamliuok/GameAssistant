@@ -1,37 +1,35 @@
 package com.example.dreamwest.picassoandglide.module.main.UI;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.example.dreamwest.picassoandglide.R;
 import com.example.dreamwest.picassoandglide.base.BaseActivity;
 import com.example.dreamwest.picassoandglide.common.widget.BoottomMenuView;
-import com.squareup.picasso.Picasso;
+import com.example.dreamwest.picassoandglide.module.guess.UI.GuessFragment;
+import com.example.dreamwest.picassoandglide.module.home.UI.HomeFragment;
+import com.example.dreamwest.picassoandglide.module.money.UI.MoneyFragment;
+import com.example.dreamwest.picassoandglide.module.my.UI.MyFragment;
+import com.example.dreamwest.picassoandglide.module.shop.UI.ShopFragment;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private BoottomMenuView bottommenu1;
     private BoottomMenuView bottommenu2;
     private BoottomMenuView bottommenu3;
     private BoottomMenuView bottommenu4;
     private BoottomMenuView bottommenu5;
+    private BoottomMenuView lastone;
+    private FragmentTransaction transaction;
+    private HomeFragment homeFragment;
+    private MoneyFragment moneyFragment;
+    private GuessFragment guessFragment;
+    private ShopFragment shopFragment;
+    private MyFragment myFragment;
+    private Fragment lastfragment;
+    public static MainActivity mainActivity;
 
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        String strUrl = "http://desk.fd.zol-img.com.cn/t_s1280x800c5/g2/M00/0E/04/Cg-4WlV_kTuIbu20ABDSmRN6bJwAAFcxQGfUDAAENKx866.jpg";
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        //Picasso显示图片质量高些(ARGB_8888   一个像素占4字节)加载稍慢，图片占用内存大,不可加载Gif动态图
-        Picasso.with(this)
-                .load(strUrl)//图片加载的地址
-                .placeholder(R.mipmap.ic_launcher)//设置加载完成前默认的图片
-                .error(R.mipmap.ic_launcher)//设置加载出错时的图片
-                .resize(200,200)//重新设定加载图片的尺寸
-                .into(imageView);//图片加载到哪个ImageView控件
-        //Glide显示图片质量稍差(RGB_565  一个像素占2字节)加载快，图片占用内存小，可以加载Gif动态图
-    }*/
 
     @Override
     protected int setViewID() {
@@ -45,34 +43,109 @@ public class MainActivity extends BaseActivity {
         bottommenu3 = (BoottomMenuView) findViewById(R.id.bottommenu_3);
         bottommenu4 = (BoottomMenuView) findViewById(R.id.bottommenu_4);
         bottommenu5 = (BoottomMenuView) findViewById(R.id.bottommenu_5);
+
     }
 
     @Override
     protected void init() {
-        bottommenu1.setImageviewRes(R.mipmap.icon_home);
-        bottommenu1.setTextViewText("首页");
-        bottommenu2.setImageviewRes(R.mipmap.ic_menu_03_nor);
-        bottommenu2.setTextViewText("赚钱");
-        bottommenu3.setImageviewRes(R.mipmap.ic_menu_01_nor);
-        bottommenu3.setTextViewText("竞猜");
-        bottommenu4.setImageviewRes(R.mipmap.ic_menu_04_nor);
-        bottommenu4.setTextViewText("商城");
-        bottommenu5.setImageviewRes(R.mipmap.ic_menu_05_nor);
-        bottommenu5.setTextViewText("我的");
+        mainActivity = this;
+        //默认设置进入后,选择了底部菜单项中的首页选项
+        lastone = bottommenu1;
+        lastone.onSelected();
+        //初始化Fragment
+        homeFragment = new HomeFragment();
+        moneyFragment = new MoneyFragment();
+        guessFragment = new GuessFragment();
+        shopFragment = new ShopFragment();
+        myFragment = new MyFragment();
+        lastfragment = homeFragment;
+        //开启事务，默认进入后的Fragment为homeFragment
+        transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.fragment_container, myFragment);
+        transaction.hide(myFragment);
+        transaction.add(R.id.fragment_container, shopFragment);
+        transaction.hide(shopFragment);
+        transaction.add(R.id.fragment_container, guessFragment);
+        transaction.hide(guessFragment);
+        transaction.add(R.id.fragment_container, moneyFragment);
+        transaction.hide(moneyFragment);
+        transaction.add(R.id.fragment_container, homeFragment);
+        transaction.commit();
     }
 
     @Override
     protected void initEvent() {
-        bottommenu1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bottommenu1.setImageviewRes(R.mipmap.icon_home_hover);
-            }
-        });
+        bottommenu1.setOnClickListener(this);
+        bottommenu2.setOnClickListener(this);
+        bottommenu3.setOnClickListener(this);
+        bottommenu4.setOnClickListener(this);
+        bottommenu5.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        //不是连续点击才执行反向动画
+        if (v != lastone) {
+            lastone.unSelected();
+        }
+        //再次开启事务，根据点击的选项来替换掉当前Fragment
+        transaction = getSupportFragmentManager().beginTransaction();
+        switch (v.getId()) {
+            case R.id.bottommenu_1:
+                lastone = bottommenu1;
+                bottommenu1.onSelected();
+                if (!(lastfragment instanceof HomeFragment)) {
+                    transaction.hide(lastfragment);
+                }
+                lastfragment = homeFragment;
+                transaction.show(homeFragment);
+                break;
+            case R.id.bottommenu_2:
+                lastone = bottommenu2;
+                bottommenu2.onSelected();
+                if (!(lastfragment instanceof MoneyFragment)) {
+                    transaction.hide(lastfragment);
+                    moneyFragment.showPopupWindow();
+                }
+                lastfragment = moneyFragment;
+                transaction.show(moneyFragment);
+                break;
+            case R.id.bottommenu_3:
+                lastone = bottommenu3;
+                bottommenu3.onSelected();
+                if (!(lastfragment instanceof GuessFragment)) {
+                    transaction.hide(lastfragment);
+                }
+                lastfragment = guessFragment;
+                transaction.show(guessFragment);
+                break;
+            case R.id.bottommenu_4:
+                lastone = bottommenu4;
+                bottommenu4.onSelected();
+                if (!(lastfragment instanceof ShopFragment)) {
+                    transaction.hide(lastfragment);
+                }
+                lastfragment = shopFragment;
+                transaction.show(shopFragment);
+                break;
+            case R.id.bottommenu_5:
+                lastone = bottommenu5;
+                bottommenu5.onSelected();
+                if (!(lastfragment instanceof MyFragment)) {
+                    transaction.hide(lastfragment);
+                }
+                lastfragment = myFragment;
+                transaction.show(myFragment);
+                break;
+        }
+        transaction.commit();
+
     }
 
     @Override
     protected void loadData() {
 
     }
+
+
 }

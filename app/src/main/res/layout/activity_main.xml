@@ -5,34 +5,61 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".module.main.UI.MainActivity">
-
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_marginBottom="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <LinearLayout
+        android:background="#CCCCCC"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:id="@+id/bottommenu_container"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
         <com.example.dreamwest.picassoandglide.common.widget.BoottomMenuView
             android:id="@+id/bottommenu_1"
+            app:srcnormal="@mipmap/icon_home"
+            app:srcpress="@mipmap/icon_home_hover"
+            app:text="首页"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
         <com.example.dreamwest.picassoandglide.common.widget.BoottomMenuView
             android:id="@+id/bottommenu_2"
+            app:srcnormal="@mipmap/ic_menu_03_nor"
+            app:srcpress="@mipmap/ic_menu_03_hl"
+            app:text="赚钱"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
         <com.example.dreamwest.picassoandglide.common.widget.BoottomMenuView
             android:id="@+id/bottommenu_3"
+            app:srcnormal="@mipmap/ic_menu_01_nor"
+            app:srcpress="@mipmap/ic_menu_01_hl"
+            app:text="竞猜"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
         <com.example.dreamwest.picassoandglide.common.widget.BoottomMenuView
             android:id="@+id/bottommenu_4"
+            app:srcnormal="@mipmap/ic_menu_04_nor"
+            app:srcpress="@mipmap/ic_menu_04_hl"
+            app:text="商城"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
         <com.example.dreamwest.picassoandglide.common.widget.BoottomMenuView
             android:id="@+id/bottommenu_5"
+            app:srcnormal="@mipmap/ic_menu_05_nor"
+            app:srcpress="@mipmap/ic_menu_05_hl"
+            app:text="我的"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
