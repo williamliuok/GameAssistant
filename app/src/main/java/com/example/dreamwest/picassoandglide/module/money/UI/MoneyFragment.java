@@ -86,6 +86,7 @@ public class MoneyFragment extends BaseFragment {
             }
         };
         listView.setAdapter(mAdapter);
+
     }
 
     @Override
